@@ -17,8 +17,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # installed apps
+    'rest_framework',
+
     # custom apps
-    'rest_framework'
+    'authentication',
+    'day'
 ]
 
 REST_FRAMEWORK = {

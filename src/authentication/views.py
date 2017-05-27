@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
 
 from rest_framework import status, permissions
 from rest_framework.views import APIView
@@ -14,7 +13,7 @@ class UserCreate(APIView):
     Create new user
     """
     permission_classes = [
-        permissions.AllowAny # Or anon users can't register
+        permissions.AllowAny
     ]
 
     def post(self, request):
