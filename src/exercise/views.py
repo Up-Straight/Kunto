@@ -2,10 +2,12 @@ from __future__ import unicode_literals
 
 
 from rest_framework import generics, permissions
+from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from exercise.models import Exercise
-from exercise.serializers import ExerciseSerializer
+from exercise.serializers import ExerciseSerializer, StateSerializer
 from day.permissionss import IsOwner
 
 
@@ -33,3 +35,15 @@ class ExerciseDetails(generics.RetrieveUpdateAPIView):
     def get_queryset(self):
         user = self.request.user
         return Exercise.objects.filter(owner=user)
+
+
+@api_view(['POST'])
+def state_create(request):
+    if request.method == 'POST':
+        serializer = StateSerializer(data=request.data)
+        id = request.data['exercise_id']
+        if serializer.is_valid():
+            exercise = Exercise.objects.get(id=id)
+            serializer.save(exercise=exercise)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
