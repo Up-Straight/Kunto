@@ -12,3 +12,6 @@ class Day(models.Model):
     bad_standing_time = models.DurationField(null=True)
     total_time = models.DurationField(null=True)
     done_training = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return self.owner.username + " - " + str(self.date)
