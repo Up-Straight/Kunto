@@ -4,7 +4,7 @@ from rest_framework import serializers
 from day.models import Day
 
 
-class UserSerializer(serializers.Serializer):
+class UserSerializer(serializers.ModelSerializer):
     days = serializers.PrimaryKeyRelatedField(many=True, queryset=Day.objects.all())
 
     class Meta:
