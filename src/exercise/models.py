@@ -15,7 +15,7 @@ class State(models.Model):
 
 class Exercise(models.Model):
     owner = models.ForeignKey(User, related_name='exercises', on_delete=models.CASCADE, default=1)
-    exercise = models.ForeignKey(State, related_name='exercise', default=1)
+    states = models.ForeignKey(State, related_name='exercise', default=1)
 
     name = models.CharField(max_length=50, blank=False,
                             default='')
