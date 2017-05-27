@@ -33,4 +33,3 @@ class DayDetails(generics.RetrieveUpdateAPIView):
     def get_queryset(self):
         user = self.request.user
         return Day.objects.filter(owner=user)
-
