@@ -14,5 +14,5 @@ class DaySerializer(serializers.ModelSerializer):
     class Meta:
         model = Day
         fields = ('id', 'date', 'good_standing_time', 'bad_standing_time',
-                  'total_time', 'done_training', 'owner')
+                  'coefficient', 'total_time', 'done_training', 'owner')
 

@@ -22,9 +22,7 @@ class DayCreate(generics.ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-        print queryset
         serializer = DaySerializer(queryset, many=True)
-        print serializer
         return Response(serializer.data)
 
 
