@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Exercise(models.Model):
-    owner = models.ForeignKey(User, related_name='states', on_delete=models.CASCADE, default=1)
+    owner = models.ForeignKey(User, related_name='exercises', on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50, blank=False,
                             default='')
     time = models.DurationField()
