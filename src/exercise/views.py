@@ -20,6 +20,8 @@ class ExerciseCreate(generics.ListCreateAPIView):
         return Exercise.objects.filter(owner=user)
 
     def perform_create(self, serializer):
+        print self.request.user
+        print serializer
         serializer.save(owner=self.request.user)
 
     def list(self, request, *args, **kwargs):
@@ -30,7 +32,7 @@ class ExerciseCreate(generics.ListCreateAPIView):
 
 class ExerciseDetails(generics.RetrieveUpdateAPIView):
     serializer_class = ExerciseSerializer
-    permission_classes = (permissions, IsOwner)
+    permission_classes = (permissions.IsAuthenticated, IsOwner)
 
     def get_queryset(self):
         user = self.request.user

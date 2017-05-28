@@ -13,7 +13,7 @@ class ExerciseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Exercise
-        fields = ('id', 'name', 'owner', 'states')
+        fields = ('id', 'name', 'owner')
 
 
 class StateSerializer(serializers.ModelSerializer):
