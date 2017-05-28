@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     # custom apps
     'authentication',
     'day',
-    'exercise'
+    'exercise',
+    'machine_learning'
 ]
 
 REST_FRAMEWORK = {
