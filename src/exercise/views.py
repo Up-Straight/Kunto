@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 from exercise.models import Exercise
 from exercise.serializers import ExerciseSerializer, StateSerializer
-from day.permissionss import IsOwner
+from day.permissions import IsOwner
 
 
 class ExerciseCreate(generics.ListCreateAPIView):

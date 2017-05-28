@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 from day.models import Day
 from day.serializers import DaySerializer
-from permissionss import IsOwner
+from permissions import IsOwner
 
 
 class DayCreate(generics.ListCreateAPIView):
