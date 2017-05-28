@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 from rest_framework import status, permissions
 from rest_framework import views, generics
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from authentication.serializers import UserSerializer
@@ -34,5 +35,11 @@ class UserGet(generics.RetrieveAPIView):
     def get_queryset(self):
         user = self.request.user
         return User.objects.filter(pk=user.pk)
+
+
+@api_view(['GET'])
+def current_user(request):
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data)
 
 
